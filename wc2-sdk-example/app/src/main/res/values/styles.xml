@@ -1,0 +1,91 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Background">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:background">#FFFFFF</item>
+    </style>
+
+    <style name="ContainerLayout">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_marginLeft">4pt</item>
+        <item name="android:layout_marginRight">4pt</item>
+    </style>
+
+    <style name="BannerImage">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+
+    <style name="LabelValueLayout">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">2pt</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="Label" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">8pt</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#231F20</item>
+    </style>
+
+    <style name="Value" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">right</item>
+        <item name="android:textSize">8pt</item>
+        <item name="android:textColor">#0079C2</item>
+    </style>
+
+    <style name="BarLayout">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="BarLabel" parent="Label">
+        <item name="android:layout_marginLeft">10pt</item>
+        <item name="android:layout_width">30pt</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">right</item>
+        <item name="android:layout_weight">0</item>
+        <item name="android:textSize">7pt</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#231F20</item>
+    </style>
+
+    <style name="Bar" parent="@android:style/Widget.Holo.Light.ProgressBar.Horizontal">
+        <item name="android:layout_marginTop">2pt</item>
+        <item name="android:layout_marginLeft">4pt</item>
+        <item name="android:layout_marginRight">4pt</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">5pt</item>
+    </style>
+
+    <style name="BarValue" parent="Value">
+        <item name="android:layout_width">20pt</item>
+        <item name="android:layout_weight">0</item>
+        <item name="android:gravity">right</item>
+        <item name="android:textSize">7pt</item>
+    </style>
+
+    <style name="ZeroOrientation">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
+</resources>

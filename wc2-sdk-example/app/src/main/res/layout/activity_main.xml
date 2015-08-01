@@ -1,0 +1,264 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    style="@style/Background">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        style="@style/ContainerLayout">
+
+        <ImageView
+            android:id="@+id/pltLabsImageView"
+            style="@style/BannerImage"
+            android:src="@mipmap/pltlabs"/>
+
+        <TextView
+            android:id="@+id/orientationLabelTextView"
+            android:layout_below="@id/pltLabsImageView"
+            style="@style/Label"
+            android:text="Orientation" />
+
+        <LinearLayout
+            android:id="@+id/headingLinearLayout"
+            android:layout_below="@id/orientationLabelTextView"
+            style="@style/BarLayout">
+
+            <TextView
+                android:id="@+id/headingLabelTextView"
+                style="@style/BarLabel"
+                android:text="heading" />
+
+            <ProgressBar
+                android:id="@+id/headingProgressBar"
+                style="@style/Bar"
+                android:max="360" />
+
+            <TextView
+                android:id="@+id/headingValueTextView"
+                style="@style/BarValue"
+                android:text="0°" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pitchLinearLayout"
+            android:layout_below="@id/headingLinearLayout"
+            style="@style/BarLayout">
+
+            <TextView
+                android:id="@+id/pitchLabelTextView"
+                style="@style/BarLabel"
+                android:text="pitch" />
+
+            <ProgressBar
+                android:id="@+id/pitchProgressBar"
+                style="@style/Bar"
+                android:max="180" />
+
+            <TextView
+                android:id="@+id/pitchValueTextView"
+                style="@style/BarValue"
+                android:text="0°" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rollLinearLayout"
+            android:layout_below="@id/pitchLinearLayout"
+            style="@style/BarLayout">
+
+            <TextView
+                android:id="@+id/rollLabelTextView"
+                style="@style/BarLabel"
+                android:text="roll" />
+
+            <ProgressBar
+                android:id="@+id/rollProgressBar"
+                style="@style/Bar"
+                android:max="360" />
+
+            <TextView
+                android:id="@+id/rollValueTextView"
+                style="@style/BarValue"
+                android:text="0°" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/zeroOrientationButton"
+            android:layout_below="@id/rollLinearLayout"
+            style="@style/ZeroOrientation"
+            android:text="Zero Orientation" />
+
+        <LinearLayout
+            android:id="@+id/wearingStateLinearLayout"
+            android:layout_below="@id/zeroOrientationButton"
+            style="@style/LabelValueLayout"
+            android:layout_marginTop="5pt" >
+
+            <TextView
+                android:id="@+id/wearingStateLabelTextView"
+                style="@style/Label"
+                android:text="Wearing" />
+
+            <TextView
+                android:id="@+id/wearingStateValueTextView"
+                style="@style/Value"
+                android:text="-" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/localProximityLinearLayout"
+            android:layout_below="@id/wearingStateLinearLayout"
+            style="@style/LabelValueLayout">
+
+            <TextView
+                android:id="@+id/localProximityLabelTextView"
+                style="@style/Label"
+                android:text="Proximity" />
+
+            <TextView
+                android:id="@+id/localProximityValueTextView"
+                style="@style/Value"
+                android:text="unknown" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tapsLinearLayout"
+            android:layout_below="@id/localProximityLinearLayout"
+            style="@style/LabelValueLayout">
+
+            <TextView
+                android:id="@+id/tapsLabelTextView"
+                style="@style/Label"
+                android:text="Taps" />
+
+            <TextView
+                android:id="@+id/tapsValueTextView"
+                style="@style/Value"
+                android:text="no taps" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pedometerLinearLayout"
+            android:layout_below="@id/tapsLinearLayout"
+            style="@style/LabelValueLayout">
+
+            <TextView
+                android:id="@+id/pedometerLabelTextView"
+                style="@style/Label"
+                android:text="Pedometer" />
+
+            <TextView
+                android:id="@+id/pedometerValueTextView"
+                style="@style/Value"
+                android:text="0 steps" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/freeFallLinearLayout"
+            android:layout_below="@id/pedometerLinearLayout"
+            style="@style/LabelValueLayout">
+
+            <TextView
+                android:id="@+id/freeFallLabelTextView"
+                style="@style/Label"
+                android:text="Free Fall" />
+
+            <TextView
+                android:id="@+id/freeFallValueTextView"
+                style="@style/Value"
+                android:text="no" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/compassLayout"
+            android:layout_below="@id/freeFallLinearLayout"
+            style="@style/LabelValueLayout">
+
+            <TextView
+                android:id="@+id/compassLabelTextView"
+                style="@style/Label"
+                android:text="Compass" />
+
+            <TextView
+                android:id="@+id/compassValueTextView"
+                style="@style/Value"
+                android:text="0°" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/accelerationLayout"
+            android:layout_below="@id/compassLayout"
+            style="@style/LabelValueLayout">
+
+            <TextView
+                android:id="@+id/accelerationLabelTextView"
+                style="@style/Label"
+                android:text="Acceleration" />
+
+            <TextView
+                android:id="@+id/accelerationValueTextView"
+                style="@style/Value"
+                android:text="{0, 0, 0}" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/angularVelocityLinearLayout"
+            android:layout_below="@id/accelerationLayout"
+            style="@style/LabelValueLayout">
+
+            <TextView
+                android:id="@+id/angularVelocityLabelTextView"
+                style="@style/Label"
+                android:text="Angular Acceleration" />
+
+            <TextView
+                android:id="@+id/angularVelocityValueTextView"
+                style="@style/Value"
+                android:text="{0, 0, 0}" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/magneticFieldLinearLayout"
+            android:layout_below="@id/angularVelocityLinearLayout"
+            style="@style/LabelValueLayout">
+
+            <TextView
+                android:id="@+id/magneticFieldLabelTextView"
+                style="@style/Label"
+                android:text="Magnetic Field" />
+
+            <TextView
+                android:id="@+id/magneticFieldValueTextView"
+                style="@style/Value"
+                android:text="{0, 0, 0}" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/voiceEventLinearLayout"
+            android:layout_below="@id/magneticFieldLinearLayout"
+            style="@style/LabelValueLayout">
+
+            <TextView
+                android:id="@+id/voiceEventLabelTextView"
+                style="@style/Label"
+                android:text="Voice Event" />
+
+            <TextView
+                android:id="@+id/voiceEventValueTextView"
+                style="@style/Value"
+                android:text="-" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>
