@@ -6,11 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
 import com.plantronics.wc2sdk.*;
 import com.plantronics.wc2sdk.configuration.OrientationConfiguration;
 import com.plantronics.wc2sdk.snapshot.AccelerationSnapshot;
@@ -252,27 +252,23 @@ public class MainActivity extends AppCompatActivity implements PairingListener, 
 		//zeroOrientation();
 	}
 
-	public void onConnectionFailedToOpen(Device device, int error) {
-		Log.i(TAG, "onConnectionFailedToOpen()");
-
-		if (error == Device.ERROR_CONNECTION_TIMEOUT) {
-			Log.i(TAG, "Open connection timed out.");
-		}
-	}
-
 	public void onConnectionClosed(Device device) {
 		Log.i(TAG, "onConnectionClosed()");
 
 		_device = null;
 	}
 
-	/* ****************************************************************************************************
-			 InfoListener
-	*******************************************************************************************************/
+	public void onConnectionFailed(Device device, int error) {
+		Log.i(TAG, "onConnectionFailed()");
 
-	public void onSubscriptionChanged(Subscription oldSubscription, Subscription newSubscription) {
-		Log.i(TAG, "onSubscriptionChanged(): oldSubscription=" + oldSubscription + ", newSubscription=" + newSubscription);
+		if (error == Device.ERROR_CONNECTION_TIMEOUT) {
+			Log.i(TAG, "Open connection timed out.");
+		}
 	}
+
+	/* ****************************************************************************************************
+			 SnapshotListener
+	*******************************************************************************************************/
 
 	public void onSnapshotReceived(final Snapshot snapshot) {
 		Log.i(TAG, "onSnapshotReceived(): " + snapshot);
@@ -352,5 +348,9 @@ public class MainActivity extends AppCompatActivity implements PairingListener, 
 				}
 			}
 		});
+	}
+
+	public void onSubscriptionChanged(ServiceSubscription oldSubscription, ServiceSubscription newSubscription) {
+		Log.i(TAG, "onSubscriptionChanged(): oldSubscription=" + oldSubscription + ", newSubscription=" + newSubscription);
 	}
 }
