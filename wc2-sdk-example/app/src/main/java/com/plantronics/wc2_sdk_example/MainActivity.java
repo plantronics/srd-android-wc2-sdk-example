@@ -15,13 +15,13 @@ import com.plantronics.wc2sdk.*;
 import com.plantronics.wc2sdk.configuration.OrientationConfiguration;
 import com.plantronics.wc2sdk.snapshot.AccelerationSnapshot;
 import com.plantronics.wc2sdk.snapshot.AngularVelocitySnapshot;
-import com.plantronics.wc2sdk.snapshot.CompassSnapshot;
+import com.plantronics.wc2sdk.snapshot.CompassHeadingSnapshot;
 import com.plantronics.wc2sdk.snapshot.FreeFallSnapshot;
 import com.plantronics.wc2sdk.snapshot.MagneticFieldSnapshot;
 import com.plantronics.wc2sdk.snapshot.OrientationSnapshot;
-import com.plantronics.wc2sdk.snapshot.PedometerSnapshot;
 import com.plantronics.wc2sdk.snapshot.ProximitySnapshot;
 import com.plantronics.wc2sdk.snapshot.Snapshot;
+import com.plantronics.wc2sdk.snapshot.StepCountSnapshot;
 import com.plantronics.wc2sdk.snapshot.TapsSnapshot;
 import com.plantronics.wc2sdk.snapshot.VoiceEventSnapshot;
 import com.plantronics.wc2sdk.snapshot.WearingStateSnapshot;
@@ -47,9 +47,9 @@ public class MainActivity extends AppCompatActivity implements PairingListener, 
 	private TextView		_wearingStateValueTextView;
 	private TextView		_localProximityValueTextView;
 	private TextView		_tapsValueTextView;
-	private TextView		_pedometerValueTextView;
+	private TextView		_stepCountValueTextView;
 	private TextView		_freeFallValueTextView;
-	private TextView		_compassValueTextView;
+	private TextView		_compassHeadingValueTextView;
 	private TextView		_accelerationValueTextView;
 	private TextView		_angularVelocityValueTextView;
 	private TextView		_magneticFieldValueTextView;
@@ -83,9 +83,9 @@ public class MainActivity extends AppCompatActivity implements PairingListener, 
 		_wearingStateValueTextView = ((TextView)findViewById(R.id.wearingStateValueTextView));
 		_localProximityValueTextView = ((TextView)findViewById(R.id.localProximityValueTextView));
 		_tapsValueTextView = ((TextView)findViewById(R.id.tapsValueTextView));
-		_pedometerValueTextView = ((TextView)findViewById(R.id.pedometerValueTextView));
+		_stepCountValueTextView = ((TextView)findViewById(R.id.stepCountValueTextView));
 		_freeFallValueTextView = ((TextView)findViewById(R.id.freeFallValueTextView));
-		_compassValueTextView = ((TextView)findViewById(R.id.compassValueTextView));
+		_compassHeadingValueTextView = ((TextView)findViewById(R.id.compassHeadingValueTextView));
 		_accelerationValueTextView = ((TextView)findViewById(R.id.accelerationValueTextView));
 		_angularVelocityValueTextView = ((TextView)findViewById(R.id.angularVelocityValueTextView));
 		_magneticFieldValueTextView = ((TextView)findViewById(R.id.magneticFieldValueTextView));
@@ -237,9 +237,9 @@ public class MainActivity extends AppCompatActivity implements PairingListener, 
 //			_device.subscribe(this, Device.SERVICE_WEARING_STATE, (short)300);
 //			_device.subscribe(this, Device.SERVICE_PROXIMITY, (short)300);
 //			_device.subscribe(this, Device.SERVICE_TAPS, (short)300);
-//			_device.subscribe(this, Device.SERVICE_PEDOMETER, (short)300);
+//			_device.subscribe(this, Device.SERVICE_STEP_COUNT, (short)300);
 //			_device.subscribe(this, Device.SERVICE_FREE_FALL, (short)300);
-			_device.subscribe(this, Device.SERVICE_COMPASS, (short)300);
+			_device.subscribe(this, Device.SERVICE_COMPASS_HEADING, (short)300);
 //			_device.subscribe(this, Device.SERVICE_ACCELERATION, (short)300);
 //			_device.subscribe(this, Device.SERVICE_ANGULAR_VELOCITY, (short)300);
 //			_device.subscribe(this, Device.SERVICE_MAGNETIC_FIELD, (short)300);
@@ -313,17 +313,17 @@ public class MainActivity extends AppCompatActivity implements PairingListener, 
 					String tapss = (count > 1 ? " taps" : " tap");
 					_tapsValueTextView.setText((count == 0 ? "-" : count + tapss + " in " + TapsSnapshot.getStringForTapDirection(snap.getDirection())));
 				}
-				else if (snapshot.getClass() == PedometerSnapshot.class) {
-					PedometerSnapshot snap = (PedometerSnapshot)snapshot;
-					_pedometerValueTextView.setText(snap.getSteps() + " steps");
+				else if (snapshot.getClass() == StepCountSnapshot.class) {
+					StepCountSnapshot snap = (StepCountSnapshot)snapshot;
+					_stepCountValueTextView.setText(snap.getSteps() + " steps");
 				}
 				else if (snapshot.getClass() == FreeFallSnapshot.class) {
 					FreeFallSnapshot snap = (FreeFallSnapshot)snapshot;
 					_freeFallValueTextView.setText((snap.isInFreeFall() ? "yes" : "no"));
 				}
-				else if (snapshot.getClass() ==CompassSnapshot.class) {
-					CompassSnapshot snap = (CompassSnapshot)snapshot;
-					_compassValueTextView.setText((int)Math.round(snap.getHeading()) + "°");
+				else if (snapshot.getClass() ==CompassHeadingSnapshot.class) {
+					CompassHeadingSnapshot snap = (CompassHeadingSnapshot)snapshot;
+					_compassHeadingValueTextView.setText((int)Math.round(snap.getHeading()) + "°");
 				}
 				else if (snapshot.getClass() == AccelerationSnapshot.class) {
 					AccelerationSnapshot snap = (AccelerationSnapshot)snapshot;

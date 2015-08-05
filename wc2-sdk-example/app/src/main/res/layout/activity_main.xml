@@ -142,17 +142,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/pedometerLinearLayout"
+            android:id="@+id/stepCountLinearLayout"
             android:layout_below="@id/tapsLinearLayout"
             style="@style/LabelValueLayout">
 
             <TextView
-                android:id="@+id/pedometerLabelTextView"
+                android:id="@+id/stepCountLabelTextView"
                 style="@style/Label"
-                android:text="Pedometer" />
+                android:text="Step Count" />
 
             <TextView
-                android:id="@+id/pedometerValueTextView"
+                android:id="@+id/stepCountValueTextView"
                 style="@style/Value"
                 android:text="0 steps" />
 
@@ -160,7 +160,7 @@
 
         <LinearLayout
             android:id="@+id/freeFallLinearLayout"
-            android:layout_below="@id/pedometerLinearLayout"
+            android:layout_below="@id/stepCountLinearLayout"
             style="@style/LabelValueLayout">
 
             <TextView
@@ -176,17 +176,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/compassLayout"
+            android:id="@+id/compassHeadingLayout"
             android:layout_below="@id/freeFallLinearLayout"
             style="@style/LabelValueLayout">
 
             <TextView
-                android:id="@+id/compassLabelTextView"
+                android:id="@+id/compassHeadingLabelTextView"
                 style="@style/Label"
-                android:text="Compass" />
+                android:text="Compass Heading" />
 
             <TextView
-                android:id="@+id/compassValueTextView"
+                android:id="@+id/compassHeadingValueTextView"
                 style="@style/Value"
                 android:text="0°" />
 
@@ -194,7 +194,7 @@
 
         <LinearLayout
             android:id="@+id/accelerationLayout"
-            android:layout_below="@id/compassLayout"
+            android:layout_below="@id/compassHeadingLayout"
             style="@style/LabelValueLayout">
 
             <TextView
