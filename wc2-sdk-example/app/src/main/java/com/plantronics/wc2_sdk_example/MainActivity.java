@@ -32,7 +32,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements PairingListener, ConnectionListener, SnapshotListener {
 
-	private static final String TAG = "com.plantronics.wc2_sdk_example.MainActivity";
+	private static final String TAG = "wc2/MainActivity";
 
 	private Context 		_context;
 	private Device 			_device;
