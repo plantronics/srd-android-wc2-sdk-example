@@ -55,9 +55,8 @@ public class MainActivity extends AppCompatActivity implements PairingListener, 
 	private TextView		_magneticFieldValueTextView;
 	private TextView		_voiceEventValueTextView;
 
-
 	/* ****************************************************************************************************
-		 Activity
+			 Activity
 	*******************************************************************************************************/
 
 	@Override
@@ -170,7 +169,7 @@ public class MainActivity extends AppCompatActivity implements PairingListener, 
 
 	/* ****************************************************************************************************
 			 Private
-	*******************************************************************************************************/
+	******************************************************************************************************/
 
 	private void tryConnect() {
 		ArrayList<Device> devices = Device.getPairedDevices();
@@ -232,22 +231,29 @@ public class MainActivity extends AppCompatActivity implements PairingListener, 
 		Log.i(TAG, "onConnectionOpen()");
 
 		// subscribe to all services
+		// ******** NOTE TO SQA: ********
+		// WC2 build 22 only supports one or two "high throughput" service subscriptions at a time, and only
+		// with a "minPeriod" of >=300. "High throughput" services include orientation, compass heading, acceleration, angular velocity and magnetic field
 		try {
-//			_device.subscribe(this, Device.SERVICE_ORIENTATION, (short)300);
+			_device.subscribe(this, Device.SERVICE_ORIENTATION, (short)300);
 //			_device.subscribe(this, Device.SERVICE_WEARING_STATE, (short)300);
 //			_device.subscribe(this, Device.SERVICE_PROXIMITY, (short)300);
 //			_device.subscribe(this, Device.SERVICE_TAPS, (short)300);
 //			_device.subscribe(this, Device.SERVICE_STEP_COUNT, (short)300);
 //			_device.subscribe(this, Device.SERVICE_FREE_FALL, (short)300);
-			_device.subscribe(this, Device.SERVICE_COMPASS_HEADING, (short)300);
+//			_device.subscribe(this, Device.SERVICE_COMPASS_HEADING, (short)300);
 //			_device.subscribe(this, Device.SERVICE_ACCELERATION, (short)300);
 //			_device.subscribe(this, Device.SERVICE_ANGULAR_VELOCITY, (short)300);
 //			_device.subscribe(this, Device.SERVICE_MAGNETIC_FIELD, (short)300);
-//			_device.subscribe(this, Device.SERVICE_VOICE_EVENTS, (short)300);
+			_device.subscribe(this, Device.SERVICE_VOICE_EVENTS, (short)300);
 		}
 		catch (Exception e) {
 			Log.e(TAG, "Exception subscribing to services: " + e);
 		}
+
+		// ******** NOTE TO SQA: ********
+		// zeroOrientation() is disabled because, until at least one SERVICE_ORIENTATION update arrives it will attempt
+		// to query an update with queryUpdate() which is not supported in WC2 build 22.
 
 		//zeroOrientation();
 	}
