@@ -236,15 +236,15 @@ public class MainActivity extends AppCompatActivity implements PairingListener, 
 		// with a "minPeriod" of >=300. "High throughput" services include orientation, compass heading, acceleration, angular velocity and magnetic field
 		try {
 			_device.subscribe(this, Device.SERVICE_ORIENTATION, (short)300);
-//			_device.subscribe(this, Device.SERVICE_WEARING_STATE, (short)300);
-//			_device.subscribe(this, Device.SERVICE_PROXIMITY, (short)300);
-//			_device.subscribe(this, Device.SERVICE_TAPS, (short)300);
-//			_device.subscribe(this, Device.SERVICE_STEP_COUNT, (short)300);
-//			_device.subscribe(this, Device.SERVICE_FREE_FALL, (short)300);
-//			_device.subscribe(this, Device.SERVICE_COMPASS_HEADING, (short)300);
-//			_device.subscribe(this, Device.SERVICE_ACCELERATION, (short)300);
-//			_device.subscribe(this, Device.SERVICE_ANGULAR_VELOCITY, (short)300);
-//			_device.subscribe(this, Device.SERVICE_MAGNETIC_FIELD, (short)300);
+			_device.subscribe(this, Device.SERVICE_WEARING_STATE, (short)300);
+			_device.subscribe(this, Device.SERVICE_PROXIMITY, (short)300);
+			_device.subscribe(this, Device.SERVICE_TAPS, (short)300);
+			_device.subscribe(this, Device.SERVICE_STEP_COUNT, (short)300);
+			_device.subscribe(this, Device.SERVICE_FREE_FALL, (short)300);
+			_device.subscribe(this, Device.SERVICE_COMPASS_HEADING, (short)300);
+			_device.subscribe(this, Device.SERVICE_ACCELERATION, (short)300);
+			_device.subscribe(this, Device.SERVICE_ANGULAR_VELOCITY, (short)300);
+			_device.subscribe(this, Device.SERVICE_MAGNETIC_FIELD, (short)300);
 			_device.subscribe(this, Device.SERVICE_VOICE_EVENTS, (short)300);
 		}
 		catch (Exception e) {
